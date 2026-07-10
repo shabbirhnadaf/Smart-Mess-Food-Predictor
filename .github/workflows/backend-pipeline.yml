@@ -1,0 +1,64 @@
+name: Backend Pipeline
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+    paths:
+      - "api/**"
+      - "kafka/**"
+      - "spark/**"
+      - "ml/**"
+      - "scripts/**"
+      - "requirements.txt"
+      - ".github/workflows/backend-pipeline.yml"
+  pull_request:
+    paths:
+      - "api/**"
+      - "kafka/**"
+      - "spark/**"
+      - "ml/**"
+      - "scripts/**"
+      - "requirements.txt"
+      - ".github/workflows/backend-pipeline.yml"
+
+jobs:
+  backend-build-and-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Basic Python syntax check
+        run: |
+          python -m compileall api kafka spark ml
+
+      - name: Start FastAPI for smoke test
+        run: |
+          nohup python -m uvicorn api.main:app --host 127.0.0.1 --port 8000 > api.log 2>&1 &
+          sleep 8
+
+      - name: Smoke test API health endpoints
+        run: |
+          curl --fail http://127.0.0.1:8000/
+          curl --fail http://127.0.0.1:8000/health
+          curl --fail http://127.0.0.1:8000/kafka/status
+
+      - name: Upload API startup log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-api-log
+          path: api.log

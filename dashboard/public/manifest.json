@@ -1,0 +1,8 @@
+{
+  "short_name": "Mess Dashboard",
+  "name": "Smart Mess Food Demand Predictor",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0f172a",
+  "background_color": "#f1f5f9"
+}

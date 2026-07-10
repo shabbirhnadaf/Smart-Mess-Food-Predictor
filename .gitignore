@@ -1,0 +1,303 @@
+# ==================================================
+# ENVIRONMENT VARIABLES & SECRETS
+# ==================================================
+
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.crt
+
+
+# ==================================================
+# MARKDOWN FILES
+# ==================================================
+
+*.md
+
+
+# ==================================================
+# PYTHON
+# ==================================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+*.so
+
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+
+*.egg-info/
+.installed.cfg
+*.egg
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+.ipynb_checkpoints/
+
+
+# ==================================================
+# PYTHON VIRTUAL ENVIRONMENTS
+# ==================================================
+
+venv/
+env/
+ENV/
+.venv/
+
+
+# ==================================================
+# LOG FILES
+# ==================================================
+
+*.log
+logs/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# ==================================================
+# NODE / REACT
+# ==================================================
+
+node_modules/
+
+dashboard/node_modules/
+dashboard/build/
+dashboard/dist/
+
+build/
+dist/
+
+.npm/
+.yarn/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.eslintcache
+
+
+# ==================================================
+# SPARK
+# ==================================================
+
+spark-warehouse/
+
+metastore_db/
+derby.log
+
+tmp/checkpoints/
+checkpoints/
+
+.sparkStaging/
+
+*.crc
+
+_SUCCESS
+
+
+# ==================================================
+# SPARK STREAMING OUTPUT
+# ==================================================
+
+data/streaming_output/
+
+streaming_output/
+
+demand_agg_live/
+
+hostel_agg_live/
+
+
+# ==================================================
+# GENERATED DATASETS
+# ==================================================
+
+data/generated/
+
+data/raw/
+
+data/processed/
+
+data/features/
+
+*.csv
+*.parquet
+*.parquet.crc
+
+
+# ==================================================
+# HDFS MOCK DATA
+# ==================================================
+
+data/hdfs_mock/
+
+hdfs_mock/
+
+
+# ==================================================
+# TRAINED ML MODELS
+# ==================================================
+
+ml/saved_models/
+
+*.pkl
+*.pickle
+*.joblib
+
+*.model
+
+models/
+
+
+# ==================================================
+# KAFKA / ZOOKEEPER RUNTIME DATA
+# ==================================================
+
+kafka-logs/
+kafka-data/
+
+zookeeper-data/
+zookeeper-logs/
+
+*.offset
+
+
+# ==================================================
+# TEMPORARY / FALLBACK DATA
+# ==================================================
+
+tmp/
+
+temp/
+
+*.tmp
+*.temp
+
+fallback_*.json
+
+
+# ==================================================
+# JAVA / HADOOP
+# ==================================================
+
+*.class
+*.jar
+
+target/
+
+hs_err_pid*
+
+.hadoop/
+
+
+# ==================================================
+# IDE FILES
+# ==================================================
+
+.idea/
+
+.vscode/
+
+*.iml
+
+*.ipr
+*.iws
+
+
+# ==================================================
+# OPERATING SYSTEM FILES
+# ==================================================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# ==================================================
+# WINDOWS
+# ==================================================
+
+*.stackdump
+
+$RECYCLE.BIN/
+
+
+# ==================================================
+# MACOS
+# ==================================================
+
+.AppleDouble
+.LSOverride
+
+
+# ==================================================
+# BACKUP FILES
+# ==================================================
+
+*.bak
+*.backup
+
+*.swp
+*.swo
+
+*~
+
+
+# ==================================================
+# ARCHIVES
+# ==================================================
+
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+
+
+# ==================================================
+# LOCAL CONFIGURATION OVERRIDES
+# ==================================================
+
+config/local/
+
+config/*.local.*
+
+application-local.properties
+
+
+# ==================================================
+# GENERATED REPORTS / METRICS
+# ==================================================
+
+reports/
+
+coverage/
+
+test-results/
